@@ -1,4 +1,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
+npm run check
 npm version patch --no-git-tag-version
 git add package.json

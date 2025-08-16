@@ -1,6 +1,6 @@
 {
 	"name": "@vnaidin/react-native-cryptocurrency-icons",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "React Native cryptocurrency icons as PNG components",
 	"license": "CC0-1.0",
 	"repository": {
@@ -44,7 +44,8 @@
 	"scripts": {
 		"build": "tsc",
 		"prepare": "husky",
-		"publish:npm": "npm publish --access public"
+		"publish:npm": "npm publish --access public",
+		"check": "node scripts/check-icons.js"
 	},
 	"devDependencies": {
 		"@types/react": "^19.1.10",
