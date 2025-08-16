@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
+      - run: npm install
       - run: npm run build
       - run: npm version patch --no-git-tag-version
       - run: npm publish --access public
