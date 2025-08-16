@@ -2,6 +2,9 @@ export const icons: Record<number, Record<string, any>> = {
     32: {
         "1inch": require("../icons/32/1inch.png"),
         "2give": require("../icons/32/2give.png"),
+        jst: require("../icons/32/jst.png"),
+        usdj: require("../icons/32/usdj.png"),
+        win: require("../icons/32/win.png"),
         aave: require("../icons/32/aave.png"),
         abt: require("../icons/32/abt.png"),
         act: require("../icons/32/act.png"),
@@ -487,6 +490,9 @@ export const icons: Record<number, Record<string, any>> = {
     },
     64: {
         btc: require("../icons/64/btc.png"),
+        jst: require("../icons/64/jst.png"),
+        usdj: require("../icons/64/usdj.png"),
+        win: require("../icons/64/win.png"),
         "1inch": require("../icons/64/1inch.png"),
         "2give": require("../icons/64/2give.png"),
         aave: require("../icons/64/aave.png"),
@@ -641,7 +647,6 @@ export const icons: Record<number, Record<string, any>> = {
         eon: require("../icons/64/eon.png"),
         eop: require("../icons/64/eop.png"),
         eos: require("../icons/64/eos.png"),
-        eqli: require("../icons/64/eqli.png"),
         equa: require("../icons/64/equa.png"),
         etc: require("../icons/64/etc.png"),
         eth: require("../icons/64/eth.png"),
@@ -973,6 +978,9 @@ export const icons: Record<number, Record<string, any>> = {
     },
     128: {
         btc: require("../icons/128/btc.png"),
+        jst: require("../icons/128/jst.png"),
+        usdj: require("../icons/128/usdj.png"),
+        win: require("../icons/128/win.png"),
         "1inch": require("../icons/128/1inch.png"),
         "2give": require("../icons/128/2give.png"),
         aave: require("../icons/128/aave.png"),
