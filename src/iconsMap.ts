@@ -1,6 +1,5 @@
 export const icons: Record<number, Record<string, any>> = {
     32: {
-        btc: require("../icons/32/btc.png"),
         "1inch": require("../icons/32/1inch.png"),
         "2give": require("../icons/32/2give.png"),
         aave: require("../icons/32/aave.png"),
@@ -558,7 +557,6 @@ export const icons: Record<number, Record<string, any>> = {
         brd: require("../icons/64/brd.png"),
         bsd: require("../icons/64/bsd.png"),
         bsv: require("../icons/64/bsv.png"),
-        btc: require("../icons/64/btc.png"),
         btcd: require("../icons/64/btcd.png"),
         btch: require("../icons/64/btch.png"),
         btcp: require("../icons/64/btcp.png"),
@@ -1045,7 +1043,6 @@ export const icons: Record<number, Record<string, any>> = {
         brd: require("../icons/128/brd.png"),
         bsd: require("../icons/128/bsd.png"),
         bsv: require("../icons/128/bsv.png"),
-        btc: require("../icons/128/btc.png"),
         btcd: require("../icons/128/btcd.png"),
         btch: require("../icons/128/btch.png"),
         btcp: require("../icons/128/btcp.png"),
