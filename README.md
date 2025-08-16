@@ -1,31 +1,42 @@
-# Cryptocurrency Icons
 
-[This project](http://cryptoicons.co) contains over 7,500 icons – almost 500 crypto currencies, in 4 styles and a range of sizes. Completely free. All we ask is that you don’t claim them as your own, and share this resource with others.
+# React Native Cryptocurrency Icons
+
+This project is a React Native adaptation of [cryptoicons.co](http://cryptoicons.co), containing over 7,500 icons for almost 500 cryptocurrencies, in 4 styles and a range of sizes. Completely free. All we ask is that you don’t claim them as your own, and share this resource with others.
 
 We also have some fiat currencies: `USD`, `GBP`, `EUR`, `JPY`, `CNY`, `RUB`. *(We don't intend to add more)*
 
-Images are in the PNG format (transparent) in `32×32`, `32×32 (@2x)`, and `128×128` variants, along with SVG versions.
+Images are in PNG format (transparent) in `32×32`, `64x64`, and `128×128` variants.
 
 There's also a [`generic` icon](https://github.com/spothq/cryptocurrency-icons/blob/master/svg/color/generic.svg) that can be used for cryptocurrencies missing an icon here.
 
-If there is an altcoin you’re looking for that hasn’t been included, please [create a new issue](https://github.com/spothq/cryptocurrency-icons/issues/new?assignees=&labels=coin+request&template=add-currency.md&title=Add+Currency+%28Symbol%29).<br><sub>(We don't accept pull request contributions for new or updated icons at this time. Open an issue and we'll do the icon for you.)</sub>
+If there is an altcoin you’re looking for that hasn’t been included, please [create a new issue](https://github.com/vnaidin/react-native-cryptocurrency-icons/issues/new?assignees=&labels=coin+request&template=add-currency.md&title=Add+Currency+%28Symbol%29).
 
+---
 
 ## Install 🚀
 
 ```
-$ npm install cryptocurrency-icons
+$ npm install react-native-cryptocurrency-icons
 ```
 
-You can then import the icons from `./node_modules/cryptocurrency-icons`, for example `./node_modules/cryptocurrency-icons/svg/color/kmd.svg`.
+## Usage in React Native
 
-There's also a `manifest.json` file included in the package with a list of the currency symbol, the name of the icons and the associated colors.
+Import the icon component or icon map:
 
+```js
+import { CryptoIcon } from 'react-native-cryptocurrency-icons';
+
+```
+
+---
 
 ## Special Thanks 👏
 
-Thanks to [Christopher Downer](https://github.com/cjdowner) for starting this project and all our wonderful [contributors](https://github.com/spothq/cryptocurrency-icons/graphs/contributors).
+Thanks to [Christopher Downer](https://github.com/cjdowner) for starting the original project, all our wonderful [contributors](https://github.com/spothq/cryptocurrency-icons/graphs/contributors), and to all who have maintained and adapted this resource.
 
+**React Native adaptation and maintenance by [vnaidin](https://github.com/vnaidin), with respect to all previous authors.**
+
+---
 
 ## Used By
 

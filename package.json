@@ -3,13 +3,16 @@
 	"version": "0.0.1",
 	"description": "React Native cryptocurrency icons as PNG components",
 	"license": "CC0-1.0",
-	"repository": "vnaidin/react-native-cryptocurrency-icons",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vnaidin/react-native-cryptocurrency-icons.git"
+	},
 	"homepage": "http://cryptoicons.co",
 	"main": "dist/index.js",
 	"files": [
-		"32",
-		"32@2x",
-		"128"
+		"icons/32",
+		"icons/64",
+		"icons/128"
 	],
 	"keywords": [
 		"cryptocurrency",
@@ -37,9 +40,6 @@
 		"erc721"
 	],
 	"scripts": {
-		"test": "xo",
-		"manifest": "node scripts/manifest.js",
-		"clean": "svgo --multipass --disable=removeViewBox --enable=addViewBox $(globby {svg,originals}/**/*.svg)",
 		"build": "tsc",
 		"prepare": "npm run build"
 	},
