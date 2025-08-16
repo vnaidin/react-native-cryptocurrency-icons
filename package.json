@@ -5,7 +5,7 @@
 	"license": "CC0-1.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/vnaidin/react-native-cryptocurrency-icons.git"
+		"url": "git+https://github.com/vnaidin/react-native-cryptocurrency-icons.git"
 	},
 	"homepage": "http://cryptoicons.co",
 	"author": "Vladyslav Naidin <vladyslav.naidin.dev@gmail.com>",
@@ -57,8 +57,7 @@
 	"peerDependencies": {
 		"react": "*",
 		"react-native": "*"
-	}
-	,
+	},
 	"engines": {
 		"node": ">=16.0.0"
 	}

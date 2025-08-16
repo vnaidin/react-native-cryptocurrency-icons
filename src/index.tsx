@@ -14,10 +14,10 @@ type Props = {
 	style?: StyleProp<ImageStyle>;
 };
 
-export const CryptoIcon = ({ symbol, size = 32, style, originSize }: Props) => {
+export const CryptoIcon = ({ symbol, size = 32, style, originSize = 32 }: Props) => {
 	const icon =
 		icons[originSize as keyof typeof icons][
-			symbol.toUpperCase() as keyof (typeof icons)[keyof typeof icons]
+			symbol.toLowerCase() as keyof (typeof icons)[keyof typeof icons]
 		];
 	if (!icon)
 		return (
