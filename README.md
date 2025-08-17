@@ -37,6 +37,8 @@ Thanks to [Christopher Downer](https://github.com/cjdowner) for starting the ori
 
 ---
 
+## From author
+
 I came across all the crypto icons libraries, while developing my crypto wallet, and found out that icons in RN is a bit painful thing.
 That's why I found the most suitable already existing library, adopted to my requirements, added some coins(and will be more).
 SO: my library is the easiest way to use crypto icons, no fonts adding and so on, just import and provide 'symbol'.
