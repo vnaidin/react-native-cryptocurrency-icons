@@ -25,6 +25,8 @@ Import the icon component or icon map:
 ```js
 import  CryptoIcon  from '@vnaidin/react-native-cryptocurrency-icons';
 
+<Icon symbol="tex" originSize={32} />
+
 ```
 
 ---
