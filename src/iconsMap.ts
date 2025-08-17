@@ -1,7 +1,10 @@
-export const icons: Record<number, Record<string, any>> = {
+import { CoinSymbol, IconProps } from "./types";
+
+export const icons: Record<IconProps["originSize"], Record<CoinSymbol, string>> = {
     32: {
         "1inch": require("../icons/32/1inch.png"),
         "2give": require("../icons/32/2give.png"),
+        "0xbtc": require("../icons/32/0xbtc.png"),
         ftm: require("../icons/32/ftm.png"),
         ton: require("../icons/32/ton.png"),
         jst: require("../icons/32/jst.png"),
@@ -9,6 +12,7 @@ export const icons: Record<number, Record<string, any>> = {
         busd: require("../icons/32/busd.png"),
         near: require("../icons/32/near.png"),
         fx: require("../icons/32/fx.png"),
+        sun: require("../icons/32/sun.png"),
         lbtc: require("../icons/32/lbtc.png"),
         boba: require("../icons/32/boba.png"),
         hbar: require("../icons/32/hbar.png"),
@@ -503,12 +507,14 @@ export const icons: Record<number, Record<string, any>> = {
         zrx: require("../icons/32/zrx.png"),
     },
     64: {
+        "0xbtc": require("../icons/64/0xbtc.png"),
         btc: require("../icons/64/btc.png"),
         ftm: require("../icons/64/ftm.png"),
         ton: require("../icons/64/ton.png"),
         busd: require("../icons/64/busd.png"),
         near: require("../icons/64/near.png"),
         fx: require("../icons/64/fx.png"),
+        sun: require("../icons/64/sun.png"),
         hbar: require("../icons/64/hbar.png"),
         alpha: require("../icons/64/alpha.png"),
         xno: require("../icons/64/xno.png"),
@@ -519,6 +525,7 @@ export const icons: Record<number, Record<string, any>> = {
         fet: require("../icons/64/fet.png"),
         zro: require("../icons/64/zro.png"),
         jst: require("../icons/64/jst.png"),
+        eqli: require("../icons/64/eqli.png"),
         usdj: require("../icons/64/usdj.png"),
         win: require("../icons/64/win.png"),
         "1inch": require("../icons/64/1inch.png"),
@@ -1005,12 +1012,14 @@ export const icons: Record<number, Record<string, any>> = {
         zrx: require("../icons/64/zrx.png"),
     },
     128: {
+        "0xbtc": require("../icons/128/0xbtc.png"),
         btc: require("../icons/128/btc.png"),
         ftm: require("../icons/128/ftm.png"),
         ton: require("../icons/128/ton.png"),
         busd: require("../icons/128/busd.png"),
         near: require("../icons/128/near.png"),
         fx: require("../icons/128/fx.png"),
+        sun: require("../icons/128/sun.png"),
         xno: require("../icons/128/xno.png"),
         hbar: require("../icons/128/hbar.png"),
         alpha: require("../icons/128/alpha.png"),
