@@ -33,7 +33,12 @@ let html = `<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cryptocurrency Icons Gallery</title>
+    <meta name="robots" content="index, follow">    
+    <meta name="description" content="Cryptocurrency Icons Gallery: Browse and copy React Native cryptocurrency icon components. Includes usage examples and search.">
+    <meta name="keywords" content="cryptocurrency, icons, react native, crypto icons, gallery, bitcoin, ethereum, crypto, react-native-cryptocurrency-icons">
+    <meta name="google" content="notranslate">
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="icons/32/placeholder.png">
 </head>
 <body>
     <h1>Cryptocurrency Icons Gallery</h1>
