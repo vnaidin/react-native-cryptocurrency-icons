@@ -27,9 +27,7 @@ while ((match = requireRegex.exec(content)) !== null) {
 if (missing.length) {
 	console.log("Missing icon files referenced in iconsMap.ts:");
 	missing.forEach((f) => console.log(f));
-} else {
-	console.log("All referenced icon files exist!");
-}
+} 
 
 // Now check for files that exist but are not referenced in the map
 let unreferenced = [];
@@ -49,6 +47,4 @@ if (unreferenced.length) {
 		"\nIcon files present in icons folders but NOT referenced in iconsMap.ts:"
 	);
 	unreferenced.forEach((f) => console.log(f));
-} else {
-	console.log("All icon files in icons folders are referenced in iconsMap.ts!");
 }

@@ -1,6 +1,6 @@
 {
 	"name": "@vnaidin/react-native-cryptocurrency-icons",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"description": "React Native cryptocurrency icons as PNG components",
 	"license": "CC0-1.0",
 	"repository": {
@@ -18,32 +18,45 @@
 	],
 	"keywords": [
 		"cryptocurrency",
+		"crypto",
 		"icons",
 		"icon",
-		"crypto",
 		"currency",
-		"cryptocurrencies",
 		"currencies",
+		"cryptocurrencies",
 		"symbols",
 		"png",
 		"color",
 		"coin",
+		"coins",
 		"bitcoin",
+		"btc",
 		"ethereum",
+		"eth",
 		"flat-icons",
 		"altcoin",
 		"altcoins",
 		"icon-pack",
 		"icon-set",
+		"token",
+		"tokens",
 		"erc20-tokens",
 		"erc20",
-		"erc721"
+		"erc721",
+		"react-native",
+		"react",
+		"mobile",
+		"wallet",
+		"blockchain",
+		"defi"
 	],
 	"scripts": {
 		"build": "tsc",
 		"prepare": "husky",
 		"publish:npm": "npm publish --access public",
-		"check": "node scripts/check-icons.js"
+		"check": "node scripts/check-icons.js",
+		"generateDoc": "node scripts/generate-html-gallery.js",
+		"deploy:docs": "npm run generateDoc && npx gh-pages -d docs"
 	},
 	"devDependencies": {
 		"@types/react": "^19.1.10",

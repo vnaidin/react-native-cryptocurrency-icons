@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fafbfc;
+}
+
+h1 {
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.size-section {
+    margin: 2rem 1rem;
+    max-width: 1200px;
+}
+
+.size-title {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 1rem;
+    color: #333;
+}
+
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 18px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+}
+
+.icon-item {
+    text-align: center;
+}
+
+.icon-item img {
+    max-width: 48px;
+    max-height: 48px;
+    margin-bottom: 6px;
+    background: #f3f3f3;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px #0001;
+}
+
+.icon-label {
+    font-size: 0.85rem;
+    color: #555;
+    word-break: break-all;
+}
+
+.readme-example {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px #0001;
+    padding: 1.5rem 2rem;
+}
+
+.readme-example h2 {
+    margin-top: 0;
+}
+
+pre {
+    background: #f6f8fa;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+}

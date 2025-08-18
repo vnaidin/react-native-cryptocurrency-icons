@@ -1,0 +1,35 @@
+name: Deploy Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/**'
+      - 'scripts/generate-html-gallery.js'
+      - 'src/iconsMap.ts'
+      - '.github/workflows/gh-pages.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run generateDoc
+      - name: Copy icons to docs
+        run: |
+          mkdir -p docs/icons/32 docs/icons/64 docs/icons/128
+          cp -r icons/32 docs/icons/
+          cp -r icons/64 docs/icons/
+          cp -r icons/128 docs/icons/
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          force_orphan: true

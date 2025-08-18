@@ -1,19 +1,24 @@
-import React from "react";
-import { Image } from "react-native";
+import React, { JSX } from "react";
+import { Image, ImageSourcePropType } from "react-native";
 import { icons } from "./iconsMap";
-import { IconProps } from "./types";
-const PLACEHOLDER_MAP = {
-	32: require("../icons/32/placeholder.png"),
-	64: require("../icons/64/placeholder.png"),
-	128: require("../icons/128/placeholder.png"),
-} as const;
+import { CryptoIconProps } from "./types";
+import { PLACEHOLDER_MAP } from "./placeholder";
 
-
-
-export const CryptoIcon = ({ symbol, size = 32, style, originSize = 32 }: IconProps) => {
-	const icon =
-		icons[originSize as keyof typeof icons][
-			symbol.toLowerCase() as keyof (typeof icons)[keyof typeof icons]
+/**
+ * CryptoIcon component to display cryptocurrency icons.
+ *
+ * @param {CryptoIconProps} props - Properties for the CryptoIcon component.
+ * @returns {JSX.Element} The rendered CryptoIcon component.
+ */
+const CryptoIcon = ({
+	symbol,
+	size = 32,
+	style,
+	originSize = 32,
+}: CryptoIconProps): JSX.Element => {
+	const icon: ImageSourcePropType =
+		icons[originSize as CryptoIconProps["originSize"]][
+			symbol.toLowerCase() as keyof (typeof icons)[CryptoIconProps["originSize"]]
 		];
 	if (!icon)
 		return (
@@ -25,10 +30,10 @@ export const CryptoIcon = ({ symbol, size = 32, style, originSize = 32 }: IconPr
 
 	return (
 		<Image
-			source={typeof icon === "string" ? { uri: icon } : icon}
+			source={icon}
 			style={[{ width: size, height: size, resizeMode: "contain" }, style]}
 		/>
 	);
 };
 
-export default CryptoIcon;
+export { CryptoIcon, CryptoIconProps };
