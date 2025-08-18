@@ -20,7 +20,7 @@ for (const size of sizesToParse) {
 	let entryMatch;
 	while ((entryMatch = entryRegex.exec(block))) {
 		const symbol = entryMatch[2];
-		const relPath = `../icons/${size}/${entryMatch[4]}.png`;
+		const relPath = `icons/${size}/${entryMatch[4]}.png`;
 		result[size][symbol] = relPath;
 	}
 }

@@ -1,13 +1,13 @@
 {
 	"name": "@vnaidin/react-native-cryptocurrency-icons",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"description": "React Native cryptocurrency icons as PNG components",
 	"license": "CC0-1.0",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnaidin/react-native-cryptocurrency-icons.git"
 	},
-	"homepage": "https://github.com/vnaidin/react-native-cryptocurrency-icons#readme",
+	"homepage": "https://vnaidin.github.io/react-native-cryptocurrency-icons",
 	"author": "Vladyslav Naidin <vladyslav.naidin.dev@gmail.com>",
 	"main": "dist/index.js",
 	"files": [
