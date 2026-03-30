@@ -5,28 +5,15 @@ const SRC_PATH = path.join(__dirname, "../src/iconsMap.ts");
 const OUT_PATH = path.join(__dirname, "../docs/index.html");
 
 const content = fs.readFileSync(SRC_PATH, "utf8");
-const entryRegex =
-	/(["']?)([\w$]+)\1\s*:\s*require\(["']\.\.\/icons\/(\d+)\/([\w$-]+)\.png["']\),?/g;
-const result = {};
-const sizesToParse = [32, 64, 128];
-for (const size of sizesToParse) {
-	const blockRegex = new RegExp(
-		`(["']?${size}["']?)\\s*:\\s*\\{([\\s\\S]*?)\\}\\s*(?=,|\\}|$)`
-	);
-	const blockMatch = blockRegex.exec(content);
-	if (!blockMatch) continue;
-	const block = blockMatch[2];
-	result[size] = {};
-	let entryMatch;
-	while ((entryMatch = entryRegex.exec(block))) {
-		const symbol = entryMatch[2];
-		const relPath = `icons/${size}/${entryMatch[4]}.png`;
-		result[size][symbol] = relPath;
-	}
+const entryRegex = /(["']?)([\w$-]+)\1\s*:\s*require\(["']\.\.\/icons\/128\/([\w$-]+)\.png["']\),?/g;
+const icons = {};
+let entryMatch;
+while ((entryMatch = entryRegex.exec(content))) {
+	const symbol = entryMatch[2];
+	icons[symbol] = `icons/128/${entryMatch[3]}.png`;
 }
 
 // Generate HTML
-const sizes = Object.keys(result).sort((a, b) => Number(a) - Number(b));
 let html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,20 +122,15 @@ window.copyToClipboard = function(text) {
 };
 </script>
 `;
-sizes.forEach((size) => {
-	html += `<div class="size-section">
-        <div class="size-title">Size: ${size}px</div>
-        <div class="icons-grid">
-`;
-	Object.entries(result[size]).forEach(([symbol, relPath]) => {
-		html += `      <div class="icon-item">
-                <img src="${relPath}" alt="${symbol}" style="cursor:pointer" title="Copy usage to clipboard"
-                    onclick="copyToClipboard('<CryptoIcon symbol=\\'${symbol}\\' originSize=\\{${size}\\} />')">
-                <div class="icon-label">${symbol}</div>
-            </div>\n`;
-	});
-	html += `    </div>\n  </div>\n`;
+html += `<div class="size-section"><div class="icons-grid">\n`;
+Object.entries(icons).sort(([a], [b]) => a.localeCompare(b)).forEach(([symbol, relPath]) => {
+	html += `  <div class="icon-item">
+            <img src="${relPath}" alt="${symbol}" style="cursor:pointer" title="Copy usage to clipboard"
+                onclick="copyToClipboard('<CryptoIcon symbol=\\'${symbol}\\' />')">
+            <div class="icon-label">${symbol}</div>
+        </div>\n`;
 });
+html += `</div></div>\n`;
 
 // Add footer
 const year = new Date().getFullYear();

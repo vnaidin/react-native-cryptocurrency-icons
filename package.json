@@ -1,6 +1,6 @@
 {
 	"name": "@vnaidin/react-native-cryptocurrency-icons",
-	"version": "0.0.20",
+	"version": "0.0.23",
 	"description": "React Native cryptocurrency icons as PNG components",
 	"license": "CC0-1.0",
 	"repository": {
@@ -10,9 +10,8 @@
 	"homepage": "https://vnaidin.github.io/react-native-cryptocurrency-icons",
 	"author": "Vladyslav Naidin <vladyslav.naidin.dev@gmail.com>",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"files": [
-		"icons/32",
-		"icons/64",
 		"icons/128",
 		"dist"
 	],
@@ -54,6 +53,7 @@
 		"build": "tsc",
 		"prepare": "husky",
 		"publish:npm": "npm publish --access public",
+		"generate": "node scripts/generate.js && node scripts/check-icons.js",
 		"check": "node scripts/check-icons.js",
 		"generateDoc": "node scripts/generate-html-gallery.js",
 		"deploy:docs": "npm run generateDoc && npx gh-pages -d docs"
@@ -65,6 +65,7 @@
 		"coinlist": "^3.1.2",
 		"get-svg-colors": "^1.5.1",
 		"husky": "^9.1.7",
+		"sharp": "^0.34.5",
 		"typescript": "^5.9.2"
 	},
 	"peerDependencies": {

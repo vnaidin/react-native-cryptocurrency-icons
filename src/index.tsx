@@ -1,39 +1,26 @@
-import React, { JSX } from "react";
+import React, { JSX, memo } from "react";
 import { Image, ImageSourcePropType } from "react-native";
 import { icons } from "./iconsMap";
 import { CryptoIconProps } from "./types";
-import { PLACEHOLDER_MAP } from "./placeholder";
+import { PLACEHOLDER } from "./placeholder";
 
-/**
- * CryptoIcon component to display cryptocurrency icons.
- *
- * @param {CryptoIconProps} props - Properties for the CryptoIcon component.
- * @returns {JSX.Element} The rendered CryptoIcon component.
- */
-const CryptoIcon = ({
+export const getCryptoIconSource = (symbol: string): ImageSourcePropType =>
+	icons[symbol.toLowerCase()] ?? PLACEHOLDER;
+
+export const getSupportedSymbols = (): string[] => Object.keys(icons);
+
+const CryptoIcon = memo(({
 	symbol,
 	size = 32,
 	style,
-	originSize = 32,
-}: CryptoIconProps): JSX.Element => {
-	const icon: ImageSourcePropType =
-		icons[originSize as CryptoIconProps["originSize"]][
-			symbol.toLowerCase() as keyof (typeof icons)[CryptoIconProps["originSize"]]
-		];
-	if (!icon)
-		return (
-			<Image
-				source={PLACEHOLDER_MAP[originSize]}
-				style={[{ width: size, height: size, resizeMode: "contain" }, style]}
-			/>
-		);
-
-	return (
-		<Image
-			source={icon}
-			style={[{ width: size, height: size, resizeMode: "contain" }, style]}
-		/>
-	);
-};
+	resizeMode = "contain",
+	accessibilityLabel,
+}: CryptoIconProps): JSX.Element => (
+	<Image
+		source={getCryptoIconSource(symbol)}
+		style={[{ width: size, height: size, resizeMode }, style]}
+		accessibilityLabel={accessibilityLabel ?? symbol.toUpperCase()}
+	/>
+));
 
 export { CryptoIcon, CryptoIconProps };

@@ -7,7 +7,6 @@ on:
     paths:
       - 'package.json'
       - 'src/**'
-      - 'dist/**'
       - '.github/workflows/publish.yml'
 
 jobs:
