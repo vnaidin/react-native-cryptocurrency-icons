@@ -1,24 +1,61 @@
-name: Publish to npm
+name: Publish
 
 on:
   push:
     branches:
       - master
     paths:
-      - "package.json"
-      - "src/**"
-      - ".github/workflows/publish.yml"
+      - 'package.json'
+      - 'src/**'
+      - 'icons/128/**'
+      - 'docs/**'
+      - 'scripts/generate-html-gallery.js'
+      - '.github/workflows/publish.yml'
 
 jobs:
-  publish:
+  npm:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+      - name: Check if npm-relevant files changed
+        id: check
+        run: |
+          git diff --name-only HEAD~1 HEAD | grep -qE '^(package\.json|src/)' && echo "changed=true" >> $GITHUB_OUTPUT || echo "changed=false" >> $GITHUB_OUTPUT
+      - uses: actions/setup-node@v5
+        if: steps.check.outputs.changed == 'true'
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org/"
+      - run: npm install
+        if: steps.check.outputs.changed == 'true'
+      - run: npm run build
+        if: steps.check.outputs.changed == 'true'
+      - run: npm publish --access public --provenance
+        if: steps.check.outputs.changed == 'true'
+
+  docs:
+    runs-on: ubuntu-latest
+    needs: npm
+    if: always()
+    steps:
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
       - run: npm install
-      - run: npm run build
-      - run: npm publish --access public --provenance
+      - run: npm run generateDoc
+      - name: Copy icons to docs
+        run: |
+          mkdir -p docs/icons/128
+          cp -r icons/128 docs/icons/
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          force_orphan: true
