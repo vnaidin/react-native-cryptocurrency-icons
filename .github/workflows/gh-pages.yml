@@ -8,6 +8,7 @@ on:
       - 'docs/**'
       - 'scripts/generate-html-gallery.js'
       - 'src/iconsMap.ts'
+      - 'icons/128/**'
       - '.github/workflows/gh-pages.yml'
 
 jobs:
