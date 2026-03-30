@@ -7,7 +7,6 @@ on:
     paths:
       - 'package.json'
       - 'src/**'
-      - 'dist/**'
       - '.github/workflows/publish.yml'
 
 jobs:
@@ -20,7 +19,6 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
       - run: npm install
-      - run: npm run prepare # Ensures husky hooks are set up
       - run: npm run build
       - run: npm publish --access public
         env:

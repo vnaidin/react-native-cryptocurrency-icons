@@ -3,7 +3,7 @@ const path = require("path");
 
 const iconsMapPath = path.join(__dirname, "../src/iconsMap.ts");
 const projectRoot = path.join(__dirname, "..");
-const iconsFolders = [32, 64, 128].map((size) => path.join(projectRoot, `icons/${size}`));
+const iconsFolders = [128].map((size) => path.join(projectRoot, `icons/${size}`));
 
 const content = fs.readFileSync(iconsMapPath, "utf8");
 const requireRegex = /require\(['"](\.\.\/icons\/(\d+)\/([^'\"]+\.png))['"]\)/g;

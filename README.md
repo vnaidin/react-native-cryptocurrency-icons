@@ -1,44 +1,84 @@
 # React Native Cryptocurrency Icons
 
-This project is a React Native adaptation of [cryptoicons.co](http://cryptoicons.co), containing over 7,500 icons for almost 500 cryptocurrencies, in a range of sizes. Completely free. All we ask is that you don’t claim them as your own, and share this resource with others.
+514+ cryptocurrency icons as PNG components for React Native. Works with bare RN, Expo, and any Metro-based workflow — no native linking, no SVG renderer needed.
 
-We also have some fiat currencies: `USD`, `GBP`, `EUR`, `JPY`, `CNY`, `RUB`. _(We don't intend to add more)_
-
-Images are in PNG format (transparent) in `32×32`, `64x64`, and `128×128` variants.
-
-If there is an altcoin you’re looking for that hasn’t been included, please [create a new issue](https://github.com/vnaidin/react-native-cryptocurrency-icons/issues/new?assignees=vnaidin&labels=coin+request&template=add-currency.md&title=Add+Currency+%28Symbol%29).
+**[Browse the gallery →](https://vnaidin.github.io/react-native-cryptocurrency-icons)**
 
 ---
 
-## Install 🚀
+## Install
 
+```sh
+npm install @vnaidin/react-native-cryptocurrency-icons
 ```
-$ npm install @vnaidin/react-native-cryptocurrency-icons
+
+## Usage
+
+```tsx
+import { CryptoIcon } from '@vnaidin/react-native-cryptocurrency-icons';
+
+<CryptoIcon
+  symbol="btc"
+  size={32}
+/>
 ```
 
-## Usage in React Native
+`symbol` is case-insensitive. Unknown symbols silently fall back to a placeholder — no crash.
 
-Import the icon component or icon map:
+### Props
 
-```js
-import { CryptoIcon } from "@vnaidin/react-native-cryptocurrency-icons";
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `symbol` | `string` | — | Coin symbol, e.g. `"btc"`, `"ETH"` |
+| `size` | `number` | `32` | Rendered width/height in points |
+| `resizeMode` | `ImageResizeMode` | `"contain"` | How the image scales within its bounds |
+| `accessibilityLabel` | `string` | symbol uppercased | Screen reader label |
+| `style` | `StyleProp<ImageStyle>` | — | Extra styles passed to `<Image>` |
 
-<CryptoIcon symbol="tex" originSize={32} />;
+### Utilities
+
+```ts
+import {
+  getCryptoIconSource,
+  getSupportedSymbols,
+} from '@vnaidin/react-native-cryptocurrency-icons';
+
+// Get the image source directly (useful for custom Image components)
+const source = getCryptoIconSource('eth');
+
+// Get all supported symbol strings
+const symbols = getSupportedSymbols(); // ['0xbtc', 'aave', 'ada', ...]
 ```
 
 ---
 
-## Special Thanks 👏
+## Adding a new coin
 
-Thanks to [Christopher Downer](https://github.com/cjdowner) for starting the original project, all our wonderful [contributors](https://github.com/spothq/cryptocurrency-icons/graphs/contributors), and to all who have maintained and adapted this resource.
+1. Drop a PNG into `icons/originals/` — any size, transparent background, named `<symbol>.png` (lowercase)
+2. Run `npm run generate` — resizes to 128×128 and regenerates `src/iconsMap.ts`
+3. Run `npm run build` and commit
 
-**React Native adaptation and maintenance by [vnaidin](https://github.com/vnaidin), with respect to all previous authors.**
+Missing a coin? [Open an issue](https://github.com/vnaidin/react-native-cryptocurrency-icons/issues/new?assignees=vnaidin&labels=coin+request&template=add-currency.md&title=Add+Currency+%28Symbol%29).
 
 ---
 
-## From author
+## Dev reference
 
-I came across all the crypto icons libraries, while developing my crypto wallet, and found out that icons in RN is a bit painful thing.
-That's why I found the most suitable already existing library, adopted to my requirements, added some coins(and will be more).
-SO: my library is the easiest way to use crypto icons, no fonts adding and so on, just import and provide 'symbol'.
-Feel free to add issues,etc.
+```sh
+npm run generate     # Resize originals/ → icons/128/, regenerate iconsMap.ts + validate
+npm run build        # Compile TypeScript (src/ → dist/) — run before committing
+npm run check        # Validate iconsMap.ts ↔ icons/128/ are in sync (bidirectional)
+npm run generateDoc  # Regenerate docs/index.html gallery
+```
+
+**Pre-commit hook** (Husky) runs `check` + auto-bumps the patch version in `package.json` — don't edit the version manually.
+
+**Publishing** is automatic via GitHub Actions on pushes to `master` that touch `package.json`, `src/**`, or `dist/**`. Always run `npm run build` locally first — `dist/` is committed and included in the published package.
+
+**Docs** (`docs/index.html`) are regenerated and deployed to GitHub Pages automatically on pushes to `master` that touch `docs/**`, `scripts/generate-html-gallery.js`, or `src/iconsMap.ts`.
+
+---
+
+## License
+
+CC0-1.0 — icons originally from [cryptoicons.co](http://cryptoicons.co) by [Christopher Downer](https://github.com/cjdowner). React Native adaptation by [vnaidin](https://github.com/vnaidin).
