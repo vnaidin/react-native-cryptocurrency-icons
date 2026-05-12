@@ -1,0 +1,45 @@
+/**
+ * Auto-generated list of all available icon symbols for web use.
+ * Used by the web entry point to check if a symbol has a matching PNG before attempting to load it.
+ * Run `npm run generate` to regenerate this list alongside iconsMap.ts.
+ */
+export const webIconsList: ReadonlySet<string> = new Set([
+  "0xbtc","1inch","2give","aave","abt","act","actn","ada","adx","ae","aeon",
+  "aeur","agi","agrs","aion","algo","amb","amp","ampl","ankr","ant","apex",
+  "appc","apt","ar","ardr","arg","ark","arn","arpa","arr","art","arth","asc",
+  "atm","atom","audr","avax","axs","bam","band","bat","bay","bcbc","bcc","bcd",
+  "bch","bcn","bcpt","bdl","bela","bix","blcn","blk","block","blt","bnb","bnt",
+  "bnty","booty","brd","bsv","btc","btcd","btch","btcp","btcz","btdx","btg",
+  "btm","bto","bts","btt","btx","burst","bzrx","call","cc","cdn","cdt","chsb",
+  "cix","clam","cloak","cmm","cmt","cnd","cnx","cob","colx","comp","coti",
+  "coval","crb","crc","crpt","crv","crw","cs","ctr","ctxc","cvc","d","dash",
+  "dat","data","dbc","dcn","dcr","deez","dent","dew","dgb","dgd","dlt","dnt",
+  "dock","doge","dot","drgn","drop","dta","dth","dtr","dusk","dx","edg","edo",
+  "edoge","ela","elec","elf","elix","ella","emc","emc2","eng","enj","entrp",
+  "eon","eop","eos","eqli","equa","etc","eth","ethos","etn","etp","eur","evx",
+  "exmo","exp","fair","fct","fdz","fet","fil","fjc","fldc","flo","flux","fnb",
+  "fota","frst","frv","ftc","ftm","fuel","fun","fxc","gas","gbyte","generic",
+  "gin","glxt","gmr","go","grc","grin","grs","grt","gsc","gto","gup","gusd",
+  "gvt","gxs","gze","hbar","hive","hlc","hmq","holo","hpb","hsr","ht","html",
+  "huc","husd","hush","icn","icp","icx","idex","idh","ignis","ilk","ink","ion",
+  "iop","iost","iotx","iq","itc","jnt","jpy","kcs","kin","klaytn","kmd","kncl",
+  "krb","ksm","lba","lend","leo","link","lkk","loom","lpt","lrc","lsk","ltc",
+  "lun","maid","mana","matic","mcap","mco","mda","mft","miota","mith","mkr",
+  "mln","mnx","mnz","moac","mod","mona","msr","mth","mue","music","mvl","nano",
+  "nas","nav","ncash","ndz","near","neo","neos","neu","nexo","ngc","nio","nlc2",
+  "nlg","nmc","nmr","npxs","ntbc","nuls","nxs","nxt","oax","ocean","ok","okb",
+  "omg","omni","ong","ont","oot","orca","ost","ox","oxt","pax","payx","pink",
+  "pirl","plr","poa","poe","polis","poly","pot","powr","ppc","ppt","pre","prl",
+  "pungo","pura","qash","qiwi","qlc","qrl","qsp","qtum","r","rdd","rdn","ren",
+  "rep","req","rfox","rhoc","ric","rise","rlc","rpx","rvn","ryo","safe","salt",
+  "san","sand","sbd","sberbank","sc","shift","shib","sky","slr","sls","snt",
+  "snx","soc","sol","spacehbit","spank","sphtx","srn","stak","start","steem",
+  "storj","storm","stox","stq","strat","sub","sumo","sushi","sys","taas","tau",
+  "tbx","tel","ten","tern","tgch","theta","tix","tkn","tks","tnb","tnc","tnt",
+  "tomo","tpay","trig","tron","trst","trx","tusd","uni","unity","usd","usdc",
+  "usdt","utk","vee","ven","veri","vet","via","vib","vibe","vivo","vrc","vrsc",
+  "vtc","wabi","wan","waves","wax","wbtc","wgr","wicc","wings","wpr","wtc",
+  "x","xas","xbc","xbp","xby","xcp","xdn","xlm","xmcc","xmg","xmr","xmy",
+  "xp","xpa","xpm","xrp","xsg","xtz","xuc","xvg","xzc","yfi","yoyow","zcl",
+  "zec","zel","zen","zil","zrx"
+]);
