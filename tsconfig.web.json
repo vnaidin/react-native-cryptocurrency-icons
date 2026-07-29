@@ -1,28 +1,22 @@
 {
-  "compilerOptions": {
-    "target": "es2017",
-    "module": "es2020",
-    "moduleResolution": "bundler",
-    "declaration": true,
-    "outDir": "dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ]
-  },
-  "include": [
-    "src/web.tsx",
-    "src/webIconsList.ts"
-  ],
-  "exclude": [
-    "src/index.tsx",
-    "src/iconsMap.ts",
-    "src/placeholder.ts",
-    "src/types.ts"
-  ]
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "es2020",
+		"moduleResolution": "bundler",
+		"declaration": true,
+		"outDir": "dist",
+		"strict": true,
+		"esModuleInterop": true,
+		"jsx": "react",
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["es2017", "dom"]
+	},
+	"include": ["src/web.tsx", "src/webIconsList.ts"],
+	"exclude": [
+		"src/index.tsx",
+		"src/iconsMap.ts",
+		"src/placeholder.ts",
+		"src/types.ts"
+	]
 }
