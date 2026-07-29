@@ -20,11 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - name: Check if npm-relevant files changed
         id: check
         run: |
-          git diff --name-only HEAD~1 HEAD | grep -qE '^(package\.json|src/)' && echo "changed=true" >> $GITHUB_OUTPUT || echo "changed=false" >> $GITHUB_OUTPUT
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            BEFORE=$(git rev-list --max-parents=0 HEAD)
+          fi
+          git diff --name-only "$BEFORE" "${{ github.sha }}" | grep -qE '^(package\.json|src/)' && echo "changed=true" >> $GITHUB_OUTPUT || echo "changed=false" >> $GITHUB_OUTPUT
       - uses: actions/setup-node@v5
         if: steps.check.outputs.changed == 'true'
         with:
