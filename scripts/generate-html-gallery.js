@@ -7,7 +7,7 @@ const OUT_CSS  = path.join(__dirname, "../docs/styles.css");
 
 // ── Parse icons ──────────────────────────────────────────────────────
 const src = fs.readFileSync(SRC_PATH, "utf8");
-const re  = /(["']?)([\w$-]+)\1\s*:\s*require\(["']\.\.\/icons\/128\/([\w$-]+)\.png["']\)/g;
+const re  = /(["']?)([\w$-]+)\1\s*:\s*require\(["']\.\.\/icons\/native\/([\w$-]+)\.webp["']\)/g;
 const entries = [];
 let m;
 while ((m = re.exec(src))) entries.push([m[2], "icons/128/" + m[3] + ".png"]);

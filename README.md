@@ -55,7 +55,7 @@ const symbols = getSupportedSymbols(); // ['0xbtc', 'aave', 'ada', ...]
 ## Adding a new coin
 
 1. Drop a PNG into `icons/originals/` — any size, transparent background, named `<symbol>.png` (lowercase)
-2. Run `npm run generate` — resizes to 128×128 and regenerates `src/iconsMap.ts`
+2. Run `npm run generate` — resizes to 128×128, writes the smaller WebP copies that React Native bundles to `icons/native/`, and regenerates `src/iconsMap.ts`
 3. Run `npm run build` and commit
 
 Missing a coin? [Open an issue](https://github.com/vnaidin/react-native-cryptocurrency-icons/issues/new?assignees=vnaidin&labels=coin+request&template=add-currency.md&title=Add+Currency+%28Symbol%29).
@@ -67,7 +67,7 @@ Missing a coin? [Open an issue](https://github.com/vnaidin/react-native-cryptocu
 ```sh
 npm run generate     # Resize originals/ → icons/128/, regenerate iconsMap.ts + validate
 npm run build        # Compile TypeScript (src/ → dist/) — run before committing
-npm run check        # Validate iconsMap.ts ↔ icons/128/ are in sync (bidirectional)
+npm run check        # Validate iconsMap.ts ↔ icons/native/ are in sync (bidirectional)
 npm run generateDoc  # Regenerate docs/index.html gallery
 ```
 
