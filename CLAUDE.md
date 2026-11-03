@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run build        # Compile TypeScript (src/ → dist/) — always run before publishing
-npm run generate     # Resize icons/originals/ → icons/128/, regenerate iconsMap.ts + CoinSymbol type, then validate
+npm run generate     # Resize icons/originals/ → icons/128/, write icons/native/ WebP copies, regenerate iconsMap.ts + CoinSymbol type, then validate
 npm run check        # Validate iconsMap.ts references match files on disk (bidirectional)
 npm run generateDoc  # Regenerate the static HTML icon gallery in docs/
 npm run deploy:docs  # generateDoc + push to gh-pages branch

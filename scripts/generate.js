@@ -4,9 +4,12 @@ const sharp = require("sharp");
 
 const originalsDir = path.join(__dirname, "../icons/originals");
 const iconsDir = path.join(__dirname, "../icons/128");
+const nativeDir = path.join(__dirname, "../icons/native");
 const iconsMapPath = path.join(__dirname, "../src/iconsMap.ts");
 
 const SIZE = 128;
+// What React Native bundles. Change this to trade sharpness for app size.
+const NATIVE_SIZE = 95;
 
 async function resizeOriginals() {
 	const pngs = fs
@@ -38,6 +41,29 @@ async function resizeOriginals() {
 	);
 }
 
+async function generateNativeIcons() {
+	fs.rmSync(nativeDir, { recursive: true, force: true });
+	fs.mkdirSync(nativeDir, { recursive: true });
+
+	const pngs = fs.readdirSync(iconsDir).filter((f) => f.endsWith(".png"));
+	const sizeOf = (dir) =>
+		fs.readdirSync(dir).reduce((sum, f) => sum + fs.statSync(path.join(dir, f)).size, 0);
+
+	await Promise.all(
+		pngs.map((file) =>
+			sharp(path.join(iconsDir, file))
+				.resize(NATIVE_SIZE, NATIVE_SIZE)
+				.webp({ quality: 80, alphaQuality: 90, effort: 6 })
+				.toFile(path.join(nativeDir, file.replace(".png", ".webp")))
+		)
+	);
+
+	const mb = (bytes) => (bytes / 1048576).toFixed(2);
+	console.log(
+		`Native icons: ${pngs.length} at ${NATIVE_SIZE}px, ${mb(sizeOf(iconsDir))} MB → ${mb(sizeOf(nativeDir))} MB`
+	);
+}
+
 function generateSources() {
 	const symbols = fs
 		.readdirSync(iconsDir)
@@ -53,7 +79,7 @@ function generateSources() {
 	// iconsMap.ts
 	const requireLine = (symbol) => {
 		const key = /^[a-z_$][a-z0-9_$]*$/i.test(symbol) ? symbol : `"${symbol}"`;
-		return `\t${key}: require("../icons/128/${symbol}.png"),`;
+		return `\t${key}: require("../icons/native/${symbol}.webp"),`;
 	};
 
 	fs.writeFileSync(
@@ -71,7 +97,7 @@ function generateSources() {
 	console.log(`Generated ${symbols.length} icons.`);
 }
 
-resizeOriginals().then(generateSources).catch((err) => {
+resizeOriginals().then(generateNativeIcons).then(generateSources).catch((err) => {
 	console.error(err.message);
 	process.exit(1);
 });

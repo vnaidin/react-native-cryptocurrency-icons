@@ -1,7 +1,7 @@
 {
 	"name": "@vnaidin/react-native-cryptocurrency-icons",
-	"version": "0.0.36",
-	"description": "React Native cryptocurrency icons as PNG components",
+	"version": "0.0.37",
+	"description": "React Native cryptocurrency icons as image components",
 	"license": "CC0-1.0",
 	"repository": {
 		"type": "git",
@@ -25,6 +25,7 @@
 	},
 	"files": [
 		"icons/128",
+		"icons/native",
 		"dist"
 	],
 	"keywords": [

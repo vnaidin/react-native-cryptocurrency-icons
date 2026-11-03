@@ -8,6 +8,7 @@ on:
       - 'package.json'
       - 'src/**'
       - 'icons/128/**'
+      - 'icons/native/**'
       - 'docs/**'
       - 'scripts/generate-html-gallery.js'
       - '.github/workflows/publish.yml'
